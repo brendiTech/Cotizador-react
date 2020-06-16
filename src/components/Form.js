@@ -1,12 +1,31 @@
 import React, {Component} from 'react';
 
 class Form extends Component{
+
+    marcaRef = React.createRef();
+    yearRef = React.createRef();
+    planBasicoRef = React.createRef();
+    planCompletoRef = React.createRef();
+
+    cotizarSeguro = (e) => {
+        e.preventDefault();
+
+        var plan = this.planBasicoRef.current.checked ? 'basico' : 'completo';
+
+        const infoAuto = {
+            marca: this.marcaRef.current.value,
+            year: this.yearRef.current.value,
+            plan: plan
+        }
+        this.props.cotizarSeguro(infoAuto);
+    }
+
     render(){
         return (
-            <form className="cotizar-auto">
+            <form className="cotizar-auto" onSubmit={this.cotizarSeguro}>
                 <div className="campo">
                     <label>Marca</label>
-                    <select name="marca" >
+                    <select name="marca" ref={this.marcaRef}>
                         <option value="americano">Americano</option>
                         <option value="europeo">Europeo</option>
                         <option value="asiatico">Asiatico</option>
@@ -15,7 +34,7 @@ class Form extends Component{
 
                 <div className="campo">
                     <label>Año</label>
-                    <select name="year">
+                    <select name="year" ref={this.yearRef}>
                         <option value="2018">2018</option>
                         <option value="2017">2017</option>
                         <option value="2016">2016</option>
@@ -29,10 +48,13 @@ class Form extends Component{
                         <option value="2008">2008</option>
                     </select>
                 </div>
-                <div className="campo">
-                    <label>Plan:</label>
-                    <input type="radio" name="plan" value="basico"/> Básico
-                    <input type="radio" name="plan" value="completo"/> Completo
+                <div className="campo-radio">
+                    <div className="option">
+                        <input type="radio" ref={this.planBasicoRef} name="plan" value="basico" /> Plan Básico
+                    </div>
+                    <div className="option">
+                    <input type="radio" ref={this.planCompletoRef} name="plan" value="completo" /> Plan Completo
+                    </div>
                 </div>
 
                 <button type="submit" className="boton">Cotizar</button>

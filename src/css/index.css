@@ -1,49 +1,83 @@
 body {
-  background: #e96443;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #904e95, #e96443);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #904e95, #e96443); 
-  font-family: Arial, Helvetica, sans-serif;
+  background: #FFFFFF; 
+  font-family: 'Montserrat', sans-serif;
+}
+.logo{
+  width: 100px;
+  margin: 5% 0%;
+}
+.auto{
+  position: absolute;
+  top: 130px;
+  left: 615px;
 }
 .contenedor {
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 400px;
+  margin: 2% 10%;
 }
 .boton {
-  background-color: #00838F!important;
+  background-color: #471FF5;
   font-size: 16px;
-  width: 100%;
+  width: 280px;
   padding: 15px;
   color: white;
-  text-transform: uppercase;
   font-weight: bold;
+  border-radius: 28px;
+  opacity: 1;
+  border: none;
+}
+select{
+  border-left-style: hidden;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  padding: 4% 0%;
+  margin: 2% 0%;
+  width: 280px;
+  font-family: 'Montserrat', sans-serif;
 }
 .boton:hover {
   cursor: pointer;
 }
 header {
-  background-color:#26C6DA;
-  padding: 10px;
   font-weight: bold;
   color: white;
 }
 header h1 {
-  font-size: 2rem;
+  font-size: 40px;
   margin:0;
-  font-family: 'Slabo 27px', serif;
-  text-align: center;
+  color: #000000;
+  text-align: left;
 }
 .contenedor-formulario {
-  background-color: white;
-  padding: 3rem;
+  margin: 5% 0%;
+}
+.campo label{
+  color: #8A96A0;
+  font-weight: lighter;
+  font-size: 13px;
 }
 
 .campo {
   display: flex;
+  flex-direction: column;
   margin-bottom: 1rem;
-  align-items: center;
+  align-items: left;
+  width: 200px;
 }
-.campo label {
-  flex: 0 0 200px;
+.campo-radio {
+  display: flex;
+  flex-direction: column;
+}
+.option{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0% 2% 2% 2%;
+  font-size: 12px;
+}
+.option input{
+  margin: 5%;
+  cursor: pointer;
 }
 .campo input[type="radio"] {
   margin: 1rem;
@@ -126,12 +160,12 @@ span.resultado {
 .gran-total {
   text-align: center;
   padding: .5rem;
-  border: 1px solid #26C6DA;
-  background-color: rgb(127, 224, 237);
   margin-top: 1rem;
+  width: 280px;
+  font-size: 12px;
+  color: #F2004A;
 }
 .gran-total p {
-
 }
 
 .resumen {
