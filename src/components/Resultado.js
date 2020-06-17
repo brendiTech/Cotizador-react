@@ -3,12 +3,11 @@ import {TransitionGroup, CSSTransition} from 'react-transition-group';
 class Resultado extends Component {
 
     render() {
-        const resultado = this.props.resultado;
-        const mensaje = (!resultado) ? 'Elije Marca, Año y Tipo de Seguro' : 'El total es: $';
+         const resultado = this.props.resultado;
+         const mensaje = (resultado) ? 'El costo es: USD$':''; 
         return (
             <div className="gran-total">
-                {mensaje}
-                <TransitionGroup component="span" className="resultado">
+                {/* { <TransitionGroup component="span" className="resultado">
                     <CSSTransition 
                     in={mensaje}
                         className="resultado" 
@@ -17,7 +16,7 @@ class Resultado extends Component {
                         >
                             <span>{resultado}</span>
                     </CSSTransition>
-                </TransitionGroup>
+                </TransitionGroup>} */}
             </div>
         );
     }

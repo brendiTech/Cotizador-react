@@ -48,6 +48,9 @@ class App extends Component {
     })
   }
   render() {
+    const datos= this.state.datos.plan
+    const alerta = (datos==null) ? 'Elije Marca, Año y Tipo de Seguro' : '';
+
   return (
     <div className="contenedor">
 
@@ -61,15 +64,19 @@ class App extends Component {
         cotizarSeguro={this.cotizarSeguro}
         />
 
+        <p className="alerta">
+          {alerta}
+        </p>
         <Resumen
         datos= {this.state.datos}
+        resultado= {this.state.resultado}
         />
         <Resultado
           resultado= {this.state.resultado}
         />
       </div>
 
-      <img src={AMG} alt="auto" className="auto"/>
+      <img src={AMG} alt="auto" className="auto" id="americano"/>
 
     </div>
   );

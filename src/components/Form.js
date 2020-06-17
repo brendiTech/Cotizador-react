@@ -9,8 +9,17 @@ class Form extends Component{
 
     cotizarSeguro = (e) => {
         e.preventDefault();
-
-        var plan = this.planBasicoRef.current.checked ? 'basico' : 'completo';
+        var plan 
+        if(this.planBasicoRef.current.checked){
+            plan = 'basico'
+        } else{
+            if(this.planCompletoRef.current.checked){
+                plan = 'completo'
+            } else{
+                plan = null;
+            }
+        }
+       // var plan = this.planBasicoRef.current.checked ? 'basico' : 'completo';
 
         const infoAuto = {
             marca: this.marcaRef.current.value,
@@ -18,6 +27,8 @@ class Form extends Component{
             plan: plan
         }
         this.props.cotizarSeguro(infoAuto);
+
+        
     }
 
     render(){
@@ -50,10 +61,14 @@ class Form extends Component{
                 </div>
                 <div className="campo-radio">
                     <div className="option">
-                        <input type="radio" ref={this.planBasicoRef} name="plan" value="basico" /> Plan Básico
+                        <label>
+                            <input type="radio" ref={this.planBasicoRef} name="plan" value="basico"  />Plan Básico
+                        </label>
                     </div>
                     <div className="option">
-                    <input type="radio" ref={this.planCompletoRef} name="plan" value="completo" /> Plan Completo
+                        <label>
+                            <input type="radio" ref={this.planCompletoRef} name="plan" value="completo" />Plan Compelto
+                        </label>
                     </div>
                 </div>
 
