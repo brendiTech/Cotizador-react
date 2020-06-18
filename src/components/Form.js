@@ -32,7 +32,8 @@ class Form extends Component{
         
     }
 
-    mostrarAuto = () => {
+    mostrarAuto = (e) => {
+        e.preventDefault();
         var select = document.getElementById("marca").value;
         console.log(select)
         document.getElementById(select).classList.toggle('auto-hide');
