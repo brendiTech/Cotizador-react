@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 class Form extends Component{
 
     marcaRef = React.createRef();
@@ -19,7 +18,7 @@ class Form extends Component{
                 plan = null;
             }
         }
-       // var plan = this.planBasicoRef.current.checked ? 'basico' : 'completo';
+       
 
         const infoAuto = {
             marca: this.marcaRef.current.value,
@@ -27,25 +26,50 @@ class Form extends Component{
             plan: plan
         }
         this.props.cotizarSeguro(infoAuto);
-
+        var car = document.getElementsByClassName("resumen")
+        if(car[0]){
+        car[0].classList.remove("hide");}
         
     }
 
+    mostrarAuto = () => {
+        var select = document.getElementById("marca").value;
+        console.log(select)
+        document.getElementById(select).classList.toggle('auto-hide');
+        const autos = document.getElementsByClassName('auto');
+        console.log(autos)
+
+        
+        for (let i = 0; i < autos.length; i++) {
+            console.log(i)
+            if (autos[i].id!==select) {
+                autos[i].classList.add("auto-hide")
+            }
+        }
+        var car = document.getElementsByClassName("resumen")
+        if(car[0]){
+        car[0].classList.add("hide");}
+        document.getElementById(select).classList.remove('resumecar')
+    }
+
     render(){
+
         return (
-            <form className="cotizar-auto" onSubmit={this.cotizarSeguro}>
+            <form className="cotizar-auto" id ="myForm" onSubmit={this.cotizarSeguro}>
                 <div className="campo">
                     <label>Marca</label>
-                    <select name="marca" ref={this.marcaRef}>
-                        <option value="americano">Americano</option>
-                        <option value="europeo">Europeo</option>
-                        <option value="asiatico">Asiatico</option>
+                    <select name="marca" ref={this.marcaRef} id="marca" onChange={this.mostrarAuto}>
+                        <option value="mercedes">Mercedes Benz</option>
+                        <option value="bmw">BWM</option>
+                        <option value="tesla">Tesla</option>
                     </select>
                 </div>
 
                 <div className="campo">
                     <label>Año</label>
                     <select name="year" ref={this.yearRef}>
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
                         <option value="2018">2018</option>
                         <option value="2017">2017</option>
                         <option value="2016">2016</option>
@@ -53,10 +77,8 @@ class Form extends Component{
                         <option value="2014">2014</option>
                         <option value="2013">2013</option>
                         <option value="2012">2012</option>
-                        <option value="2011">2011</option>
+                        <option value="2011">20011</option>
                         <option value="2010">2010</option>
-                        <option value="2009">2009</option>
-                        <option value="2008">2008</option>
                     </select>
                 </div>
                 <div className="campo-radio">

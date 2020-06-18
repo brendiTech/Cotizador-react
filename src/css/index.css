@@ -9,7 +9,10 @@ body {
 .auto{
   position: absolute;
   top: 130px;
-  left: 615px;
+  left: 680px;
+}
+.auto-hide{
+  display: none;
 }
 .contenedor {
   max-width: 400px;
@@ -209,5 +212,8 @@ input[type=radio]:checked .option {
   border-radius: 4px;
 }
 .resumecar{
-  top: 250px;
+  top: 325px;
+}
+.hide{
+  display: none;
 }

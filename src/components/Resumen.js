@@ -15,25 +15,15 @@ class Resumen extends Component {
         document.getElementById(auto).classList.add('resumecar')
         //img.classList.add("resumecar")
 
-        return(
-            <div className="resumen">
-                <h2>Cotización</h2>
-                <li>USD${resultado}</li>
+        return( 
+            <div className="resumen" >
+                <p>Cotización</p>
+                <h2>${resultado}</h2>
                 <li>Valor total a pagar</li>
                 <li>Marca: {primeraMayuscula(marca)}</li>
                 <li>Plan: {primeraMayuscula(plan)}</li>
-                <li>Año del auto: {year}</li>
+                <li>Año: {year}</li>
 
-                {/* { <TransitionGroup component="span" className="resultado">
-                    <CSSTransition 
-                    in={mensaje}
-                        className="resultado" 
-                        key={resultado}
-                        timeout={{enter : 300, exit : 300}}
-                        >
-                            <span>{resultado}</span>
-                    </CSSTransition>
-                </TransitionGroup>} */}
             </div>
         )
     }

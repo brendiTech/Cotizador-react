@@ -3,8 +3,8 @@ import {TransitionGroup, CSSTransition} from 'react-transition-group';
 class Resultado extends Component {
 
     render() {
-         const resultado = this.props.resultado;
-         const mensaje = (resultado) ? 'El costo es: USD$':''; 
+        const resultado = this.props.resultado;
+
         return (
             <div className="gran-total">
                 {/* { <TransitionGroup component="span" className="resultado">

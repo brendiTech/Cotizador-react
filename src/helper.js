@@ -6,13 +6,13 @@ export function obtenerDiferenciaAnio(year) {
      let incremento;
  
      switch (modelo) {
-         case 'europeo':
+         case 'bmw':
              incremento = 1.30;
              break;
-         case 'americano':
+         case 'mercedes':
              incremento = 1.15;
              break;
-         case 'asiatico':
+         case 'tesla':
              incremento = 1.05;
              break;
          default:
@@ -27,3 +27,5 @@ export function obtenerDiferenciaAnio(year) {
  export function primeraMayuscula(texto) {
      return texto.charAt(0).toUpperCase() + texto.slice(1);
  }
+
+

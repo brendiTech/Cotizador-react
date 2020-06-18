@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Logo from '../Logo.svg';
 import AMG from '../AMG.png';
+import BMW from '../BMW.png';
+import Tesla from '../Tesla.png';
 import Header from './Header';
 import Form from './Form';
 import Resumen from './Resumen';
@@ -13,6 +15,7 @@ class App extends Component {
     resultado : '',
     datos : {}
   }
+  
 
   cotizarSeguro = (datos) => {
     const {marca, plan, year} = datos;
@@ -26,7 +29,7 @@ class App extends Component {
     //Por cada año restar el 3% al valor del seguro
     resultado -= ((diferencia * 3) * resultado ) /100
 
-    //Americano 15% Asiático 5% Europeo 30% de incremento al valor actual
+    //Mercedes 15% BMW 5% Tesla 30% de incremento al valor actual
     resultado = calcularMarca(marca) * resultado;
 
     //El plan básico incrementa el valor un 20%, la cobertura completa incrementa un 50%
@@ -46,14 +49,18 @@ class App extends Component {
       resultado : resultado,
       datos : datosAuto
     })
+
+
   }
+
   render() {
     const datos= this.state.datos.plan
     const alerta = (datos==null) ? 'Elije Marca, Año y Tipo de Seguro' : '';
+    
 
   return (
     <div className="contenedor">
-
+      
       <img src={Logo} alt="logo" className="logo"/>
       <Header
         titulo = "Cotizador Online de Seguros de Auto"
@@ -62,22 +69,25 @@ class App extends Component {
       <div className="contenedor-formulario">
         <Form
         cotizarSeguro={this.cotizarSeguro}
+        mostrarAuto={this.mostrarAuto}
         />
 
         <p className="alerta">
           {alerta}
         </p>
         <Resumen
-        datos= {this.state.datos}
-        resultado= {this.state.resultado}
+          datos= {this.state.datos}
+          resultado= {this.state.resultado}
         />
         <Resultado
           resultado= {this.state.resultado}
+          datos= {this.state.datos}
         />
       </div>
 
-      <img src={AMG} alt="auto" className="auto" id="americano"/>
-
+      <img src={AMG} alt="Mercedes-Benz" className="auto" id="mercedes"/>
+      <img src={BMW} alt="BMW" className="auto auto-hide" id="bmw"/>
+      <img src={Tesla} alt="Tesla" className="auto auto-hide" id="tesla"/>
     </div>
   );
   }
