@@ -78,7 +78,7 @@ class Form extends Component{
                     <select name="marca" ref={this.marcaRef} id="marca" onChange={this.mostrarAuto}>
                         <option hidden value="" className="optn">Selecciona una marca</option>
                         <option value="mercedes" className="optn">Mercedes Benz</option>
-                        <option value="bmw" className="optn">BWM</option>
+                        <option value="BMW" className="optn">BMW</option>
                         <option value="tesla" className="optn">Tesla</option>
                     </select>
                 </div>

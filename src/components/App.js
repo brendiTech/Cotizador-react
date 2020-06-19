@@ -79,7 +79,7 @@ class App extends Component {
       </div>
 
       <img src={AMG} alt="Mercedes-Benz" className="auto auto-hide" id="mercedes"/>
-      <img src={BMW} alt="BMW" className="auto auto-hide" id="bmw"/>
+      <img src={BMW} alt="BMW" className="auto auto-hide" id="BMW"/>
       <img src={Tesla} alt="Tesla" className="auto auto-hide" id="tesla"/>
 
       <div className="welcome">
