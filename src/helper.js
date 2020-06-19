@@ -6,7 +6,7 @@ export function obtenerDiferenciaAnio(year) {
      let incremento;
  
      switch (modelo) {
-         case 'bmw':
+         case 'BMW':
              incremento = 1.30;
              break;
          case 'mercedes':
