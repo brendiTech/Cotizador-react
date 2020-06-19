@@ -8,20 +8,29 @@ body {
 }
 .auto{
   position: absolute;
+  opacity: 0%;
   top: 200px;
   left: 680px;
   animation-name: mostrar;
   animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
+
 @keyframes mostrar{
-  from {top: 325px;}
-  to {top: 200px;}
+  from {
+    top: 325px;
+    opacity: 0%;
+  }
+  to {
+    top: 200px;
+    opacity: 100%;
+  }
 }
 .auto-hide{
   display: none;
 }
 .contenedor {
-  max-width: 400px;
+  max-width: 405px;
   margin: 2% 10%;
 }
 .boton {
@@ -35,12 +44,16 @@ body {
   opacity: 1;
   border: 2px solid #FFFFFF;
   margin-top: 2%;
+  outline: none;
 }
 .boton:hover{
+  cursor: pointer;
   border: 2px solid #471FF5;
   color: #471FF5;
   background-color: #FFFFFF;
 }
+
+
 select{
   border-left-style: hidden;
   border-top-style: hidden;
@@ -49,16 +62,17 @@ select{
   margin: 2% 0%;
   width: 280px;
   font-family: 'Montserrat', sans-serif;
-}
-.boton:hover {
   cursor: pointer;
+  outline: none;
 }
+
 header {
   font-weight: bold;
   color: white;
 }
 header h1 {
   font-size: 40px;
+  font-weight: 600;
   margin:0;
   color: #000000;
   text-align: left;
@@ -92,6 +106,18 @@ header h1 {
   width: 280px;
   cursor: pointer;
 }
+.option{
+  justify-content: space-between;
+}
+.info{
+  margin: 6%;
+  width: 18px;
+}
+.btn-close{
+  width: 13px;
+  margin-left: 95%;
+  opacity: 30%;
+}
 .option:hover{
   box-shadow: 0px 0px 20px #00000014;
   border-radius: 4px;
@@ -110,27 +136,28 @@ header h1 {
   margin: 1rem;
 }
 .campo select option{
-  padding: 2%;
+  padding: 5%;
 }
+.welcome{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 40%;
 
-.error {
-  background-color: #FBE9E7;
-  border: 1px solid #F4511E;
-  padding: 10px;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #F4511E;
 }
-.correcto {
-  background-color: rgb(211, 249, 187);
-  border: 1px solid rgb(50, 167, 0);
-  padding: 10px;
-  margin-bottom: 20px;
-  text-align: center;
-  color: rgb(4, 150, 50);
-}
-.error p {
-  margin:0;
+.half{
+  background-color: #471FF5;
+  width: 50%;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+  position: absolute;
+
 }
 .contenido {
   margin-top: 60px;
@@ -165,28 +192,6 @@ span.resultado {
   width: 100%;
 }
 
-.resultado-enter {
-  transition: .5s;
-  transform: translateY(120%) ;
-}
-
-.resultado-enter.resultado-enter-active{
-  transform: translateY(120%);
-}
-.resultado-exit{
-  transform: translateY(0);
-  transition:.5s;
-  position : absolute;
-  left: 0;
-  bottom : 0;
-  width: 100%;
-}
-.resultado-exit-active{
-  opacity: 0;
-  transform: translateY(-100%);
-}
-    
-
 .alerta {
   text-align: center;
   padding: .5rem;
@@ -205,10 +210,10 @@ span.resultado {
   background: #FFFFFF 0% 0% no-repeat padding-box;
   box-shadow: 0px 0px 24px #0000001A;
   opacity: 1;
-  top: 114px;
+  top: 90px;
   left: 781px;
-  width: 350px;
-  height: 397px;
+  width: 320px;
+  height: 430px;
   animation-name: appear;
   animation-duration: 1s;
 }
@@ -220,24 +225,79 @@ span.resultado {
 
 .resumen li {
   list-style: none;
+  font-weight: 300;
+}
+.resumen .colorline{
+  padding-bottom: 10px;
+  border-bottom: 2px solid #471FF5;
+  width: 210px;
+  margin: auto auto 10px auto;
+}
+.resumen li span{
+  font-weight: 600;
+}
+.resumen h1{
+  font-size: 20px;
+  margin: 0;
+  font-weight: 500;
 }
 .resumen h2 {
-  margin:0 0 1rem 0;
+  font-size: 35px;
+  font-weight: 600;
+  margin:10px;
 }
 input[type=radio]:checked .option {
   box-shadow: 0px 0px 20px #00000014;
   border-radius: 4px;
 }
 .resumecar{
+  opacity:100%;
   animation-name: resume;
   animation-duration: 1s;
-  top: 325px;
 }
 
 @keyframes resume {
   from {top: 200px;}
-  to {top: 325px;}
+  to {
+    top: 325px;
+    opacity:100%;}
 }
 .hide{
   display: none;
+}
+
+.arranca{
+  animation-name: arrancar;
+  animation-duration: 1.5s;
+  animation-timing-function: linear;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  margin-top: -1500px;
+}
+
+@keyframes arrancar{
+  from {
+    margin-top: 0;
+  }
+  to {
+    margin-top: -1500px;
+  }
+}
+
+.slide{
+  animation-name: desliza;
+  animation-duration: 1s;
+  animation-timing-function: linear;
+  animation-timing-function: ease-in;
+  animation-iteration-count: 1;
+  opacity: 0%;
+}
+
+@keyframes desliza {
+  from {
+    opacity: 100%;
+  }
+  to {
+    opacity:0%
+  }
 }

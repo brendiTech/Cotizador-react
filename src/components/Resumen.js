@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {primeraMayuscula} from '../helper';
-import Resultado from './Resultado';
-import {TransitionGroup, CSSTransition} from 'react-transition-group';
+import close from '../close.svg'
 
 
 class Resumen extends Component {
@@ -13,16 +12,17 @@ class Resumen extends Component {
         const auto = this.props.datos.marca;
         if (!marca || !year || !plan) return null;
         document.getElementById(auto).classList.add('resumecar')
-        //img.classList.add("resumecar")
+
 
         return( 
             <div className="resumen" >
-                <p>Cotización</p>
+                <img src={close} alt="close" className="btn-close"/>
+                <h1>Cotización</h1>
                 <h2>${resultado}</h2>
-                <li>Valor total a pagar</li>
-                <li>Marca: {primeraMayuscula(marca)}</li>
-                <li>Plan: {primeraMayuscula(plan)}</li>
-                <li>Año: {year}</li>
+                <li className="colorline">Valor total a pagar</li>
+                <li>Marca: <span>{primeraMayuscula(marca)}</span></li>
+                <li>Plan: <span>{primeraMayuscula(plan)}</span></li>
+                <li>Año: <span>{year}</span></li>
 
             </div>
         )

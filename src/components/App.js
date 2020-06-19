@@ -3,6 +3,7 @@ import Logo from '../Logo.svg';
 import AMG from '../AMG.png';
 import BMW from '../BMW.png';
 import Tesla from '../Tesla.png';
+import Top_view from '../Top_view.png'
 import Header from './Header';
 import Form from './Form';
 import Resumen from './Resumen';
@@ -85,9 +86,14 @@ class App extends Component {
         />
       </div>
 
-      <img src={AMG} alt="Mercedes-Benz" className="auto" id="mercedes"/>
+      <img src={AMG} alt="Mercedes-Benz" className="auto auto-hide" id="mercedes"/>
       <img src={BMW} alt="BMW" className="auto auto-hide" id="bmw"/>
       <img src={Tesla} alt="Tesla" className="auto auto-hide" id="tesla"/>
+
+      <div className="welcome">
+        <div className="half" id="half"></div>
+        <img src={Top_view} alt="auto" className="top-view" id="auto-rojo"/>
+      </div>
     </div>
   );
   }
