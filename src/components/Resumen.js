@@ -1,18 +1,19 @@
 import React, {Component} from 'react';
 import {primeraMayuscula} from '../helper';
-import close from '../close.svg'
-
+import close from '../images/close.svg';
 
 class Resumen extends Component {
 
     mostrarResumen = () => {
+        
         const {marca, year, plan} = this.props.datos;
         const resultado = this.props.resultado;
-        const mensaje = (resultado) ? 'El costo es: USD$':''; 
-        const auto = this.props.datos.marca;
         if (!marca || !year || !plan) return null;
-        document.getElementById(auto).classList.add('resumecar')
+        console.log(marca, year, plan)
 
+        //Según sea el auto seleccionado, lo muestro en el resumen
+        const auto = this.props.datos.marca;
+        document.getElementById(auto).classList.add('resumecar');
 
         return( 
             <div className="resumen" >
@@ -23,19 +24,17 @@ class Resumen extends Component {
                 <li>Marca: <span>{primeraMayuscula(marca)}</span></li>
                 <li>Plan: <span>{primeraMayuscula(plan)}</span></li>
                 <li>Año: <span>{year}</span></li>
-
             </div>
         )
     }
+
     render () {
         return(
             <div>
                 { this.mostrarResumen() }
-
             </div>
         )
     }
-
 }
 
 export default Resumen;

@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
-import Logo from '../Logo.svg';
-import AMG from '../AMG.png';
-import BMW from '../BMW.png';
-import Tesla from '../Tesla.png';
-import Top_view from '../Top_view.png'
+import Logo from '../images/Logo.svg';
+import AMG from '../images/AMG.png';
+import BMW from '../images/BMW.png';
+import Tesla from '../images/Tesla.png';
+import Top_view from '../images/Top_view.png'
 import Header from './Header';
 import Form from './Form';
 import Resumen from './Resumen';
 import { obtenerDiferenciaAnio, calcularMarca, obtenerPlan} from '../helper';
-import Resultado from './Resultado';
 
 class App extends Component {
 
@@ -16,7 +15,6 @@ class App extends Component {
     resultado : '',
     datos : {}
   }
-  
 
   cotizarSeguro = (datos) => {
     const {marca, plan, year} = datos;
@@ -50,15 +48,12 @@ class App extends Component {
       resultado : resultado,
       datos : datosAuto
     })
-
-
   }
 
   render() {
     const datos= this.state.datos.plan
-    const alerta = (datos==null) ? 'Elije Marca, Año y Tipo de Seguro' : '';
+    const message = (datos==null) ? 'Elije Marca, Año y Tipo de Seguro' : '';
     
-
   return (
     <div className="contenedor">
       
@@ -74,15 +69,12 @@ class App extends Component {
         />
 
         <p className="alerta">
-          {alerta}
+          {message}
         </p>
+        
         <Resumen
           datos= {this.state.datos}
           resultado= {this.state.resultado}
-        />
-        <Resultado
-          resultado= {this.state.resultado}
-          datos= {this.state.datos}
         />
       </div>
 
